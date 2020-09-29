@@ -80,7 +80,7 @@ function ChatRoom() {
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
         <div ref={dummy}></div>
       </div>
-      <form onSubmit={sendMessage}>
+      <form onSubmit={() => sendMessage(e)}>
         <input
           value={formValue}
           onChange={(e) => {
