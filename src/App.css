@@ -33,7 +33,7 @@ body {
   background-color: rgb(40, 37, 53);
 }
 
-main {
+.main {
   padding: 10px;
   height: 80vh;
   margin: 10vh 0 10vh;
@@ -42,15 +42,15 @@ main {
   flex-direction: column;
 }
 
-main::-webkit-scrollbar {
+.main::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-main::-webkit-scrollbar-track {
+.main::-webkit-scrollbar-track {
   background: #1e1e24;
 }
 
-main::-webkit-scrollbar-thumb {
+.main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
