@@ -57,11 +57,11 @@ function ChatRoom() {
   const messagesRef = firestore.collection("messages");
   const query = messagesRef.orderBy("createdAt").limit(25);
   const [messages] = useCollectionData(query, { idField: "id" });
-  const [formValue, setFormValue] = useState();
+  const [formValue, setFormValue] = useState("");
   const dummy = useRef();
   async function sendMessage(e) {
     e.preventDefault();
-
+    if (formValue === "") return;
     const { uid, photoURL } = auth.currentUser;
     await messagesRef.add({
       text: formValue,
@@ -80,7 +80,7 @@ function ChatRoom() {
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
         <div ref={dummy}></div>
       </div>
-      <form onSubmit={() => sendMessage(e)}>
+      <form onSubmit={sendMessage}>
         <input
           value={formValue}
           onChange={(e) => {
